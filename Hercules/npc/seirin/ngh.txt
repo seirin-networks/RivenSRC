@@ -1,0 +1,120 @@
+// Town
+glastheim.gat,377,304,0	warp	glastout0	3,3,gef_fild06.gat,27,304
+glastheim.gat,356,341,0	warp	glastout1	2,2,gheim_in02.gat,214,164
+gheim_in02.gat,217,164,0	warp	glastout2	2,2,glastheim.gat,355,338
+gheim_in02.gat,208,179,0	warp	glastout3	2,2,gheim_in02.gat,85,65
+gheim_in02.gat,82,65,0	warp	glastout4	2,2,gheim_in02.gat,208,176
+glastheim.gat,40,238,0	warp	glastout5	2,2,gheim_in02.gat,228,17
+gheim_in02.gat,228,14,0	warp	glastout6	2,2,glastheim.gat,43,238 
+
+// Chivalry
+
+glastheim.gat,77,194,0	warp	glastchiv1	2,2,gheim_in01.gat,72,84
+gheim_in01.gat,72,87,0	warp	glastchiv2	2,2,glastheim.gat,74,194
+gheim_in01.gat,97,21,0	warp	glastchiv3	2,2,gheim_in05.gat,239,260
+gheim_in01.gat,45,21,0	warp	glastchiv4	2,2,gheim_in04.gat,239,260
+gheim_in04.gat,239,257,0	warp	glastchiv5	2,2,gheim_in01.gat,45,24
+gheim_in04.gat,246,259,0	warp	glastchiv6	2,2,gheim_in04.gat,254,15
+gheim_in04.gat,251,15,0	warp	glastchiv7	2,2,gheim_in04.gat,246,255
+gheim_in05.gat,238,257,0	warp	glastchiv8	2,2,gheim_in01.gat,97,25
+gheim_in05.gat,246,259,0	warp	glastchiv9	2,2,gheim_in05.gat,254,15
+gheim_in05.gat,251,15,0	warp	glastchiv10	2,2,gheim_in05.gat,246,255
+
+// Castle
+
+glastheim.gat,200,296,0	warp	glastcast1	2,2,gheim_in06.gat,50,70
+gheim_in06.gat,46,70,0	warp	glastcast2	2,2,glastheim.gat,200,292
+gheim_in06.gat,127,62,0	warp	glastcast3	2,2,gheim_in10.gat,50,56
+gheim_in10.gat,50,53,0	warp	glastcast4	2,2,gheim_in06.gat,120,61
+gheim_in06.gat,89,23,0	warp	glastcast5	2,2,gheim_in06.gat,207,130
+gheim_in06.gat,206,127,0	warp	glastcast6	2,2,gheim_in06.gat,89,26
+gheim_in04.gat,33,225,0	warp	glastcast7	2,2,gheim_in10.gat,50,129
+gheim_in10.gat,50,132,0	warp	glastcast8	2,2,gheim_in04.gat,33,228 
+gheim_in04.gat,34,291,0	warp	glastcast9	2,2,glastheim.gat,199,326
+glastheim.gat,199,321,0	warp	glastcast10	2,2,gheim_in04.gat,34,288
+gheim_in04.gat,57,229,0	warp	glastcast11	2,2,gheim_in03.gat,88,76
+gheim_in03.gat,91,79,0	warp	glastcast12	2,2,gheim_in04.gat,57,232
+gheim_in04.gat,10,229,0	warp	glastcast13	2,2,gheim_in03.gat,130,109
+gheim_in03.gat,133,106,0	warp	glastcast14	2,2,gheim_in04.gat,10,233
+gheim_in04.gat,6,253,0	warp	glastcast15	2,2,gheim_in03.gat,85,116
+gheim_in03.gat,89,116,0	warp	glastcast16	2,2,gheim_in04.gat,10,253
+gheim_in04.gat,61,253,0	warp	glastcast17	2,2,gheim_in03.gat,115,63
+gheim_in03.gat,112,60,0	warp	glastcast18	2,2,gheim_in04.gat,58,253
+gheim_in06.gat,171,174,0	warp	glastcast19	2,2,gheim_in06.gat,216,45
+gheim_in06.gat,216,51,0	warp	glastcast20	2,2,gheim_in06.gat,175,174
+gheim_in06.gat,54,26,0	warp	glastcast21	2,2,gheim_in09.gat,135,108
+gheim_in09.gat,130,108,0	warp	glastcast22	2,2,gheim_in06.gat,54,31
+gheim_in09.gat,145,114,0	warp	glastcast23	2,2,gheim_in09.gat,38,146
+gheim_in09.gat,41,146,0	warp	glastcast24	2,2,gheim_in09.gat,141,114
+gheim_in09.gat,40,138,0	warp	glastcast25	2,2,gheim_in06.gat,205,185
+gheim_in06.gat,205,189,0	warp	glastcast26	2,2,gheim_in09.gat,40,141]
+gheim_in06.gat,69,113,0	warp	glastcast27	2,2,gheim_in09.gat,52,29
+gheim_in09.gat,58,29,0	warp	glastcast28	2,2,gheim_in06.gat,69,109
+gheim_in06.gat,103,113,0	warp	glastcast29	2,2,gheim_in09.gat,70,108
+gheim_in09.gat,75,108,0	warp	glastcast30	2,2,gheim_in06.gat,103,109
+gheim_in09.gat,54,114,0	warp	glastcast31	2,2,gheim_in09.gat,170,146
+gheim_in09.gat,165,146,0	warp	glastcast32	2,2,gheim_in09.gat,59,114
+gheim_in06.gat,232,187,0	warp	glastcast33	2,2,gheim_in10.gat,36,217
+gheim_in10.gat,36,221,0	warp	glastcast34	2,2,gheim_in06.gat,232,182
+gheim_in10.gat,17,196,0	warp	glastcast35	2,2,gl_sew02.gat,297,22
+gl_sew02.gat,297,18	warp	glastcast36	2,2,gheim_in10.gat,17,200
+
+// Tavern
+
+glastheim.gat,339,49,0	warp	glasttavern1	2,2,gheim_in07.gat,348,107
+gheim_in07.gat,344,107,0	warp	glasttavern2	2,2,glastheim.gat,334,50
+gheim_in07.gat,380,117,0	warp	glasttavern3	2,2,gheim_in07.gat,379,171
+gheim_in07.gat,379,178,0	warp	glasttavern4	2,2,gheim_in07.gat,376,117
+
+// Library
+
+glastheim.gat,260,60,0	warp	glastlibrary1	2,2,gheim_in07.gat,15,74
+gheim_in07.gat,14,70,0	warp	glastlibrary2	2,2,glastheim.gat,260,55
+gheim_in07.gat,8,89,0	warp	glastlibrary3	2,2,gheim_in07.gat,158,227
+gheim_in07.gat,163,227,0	warp	glastlibrary4	2,2,gheim_in07.gat,12,89
+gheim_in07.gat,36,89,0	warp	glastlibrary5	2,2,gheim_in07.gat,14,24
+gheim_in07.gat,14,29,0	warp	glastlibrary6	2,2,gheim_in07.gat,32,89 
+gheim_in07.gat,14,109,0	warp	glastlibrary7	2,2,gl_step.gat,11,8
+
+// Tomb
+glastheim.gat,50,107,0	warp	glasttomb1	2,2,gheim_in08.gat,22,91
+gheim_in08.gat,22,88,0	warp	glasttomb2	2,2,glastheim.gat,55,107
+
+// Church
+
+glastheim.gat,200,137,0	warp	glchurch1	2,2,gheim_in08.gat,99,60
+gheim_in08.gat,100,57,0	warp	glchurch2	2,2,glastheim.gat,200,134
+gheim_in08.gat,90,81,0	warp	glchurch3	2,2,gheim_in08.gat,27,20
+gheim_in08.gat,31,20,0	warp	glchurch4	2,2,gheim_in08.gat,93,81
+gheim_in08.gat,109,82,0	warp	glchurch5	2,2,gheim_in08.gat,172,19
+gheim_in08.gat,168,19,0	warp	glchurch6	2,2,gheim_in08.gat,105,82
+gheim_in08.gat,82,122,0	warp	glchurch7	2,2,gheim_in08.gat,35,172
+gheim_in08.gat,39,172,0	warp	glchurch8	2,2,gheim_in08.gat,85,122
+gheim_in08.gat,115,122,0	warp	glchurch9	2,2,gheim_in08.gat,169,106
+gheim_in08.gat,166,105,0	warp	glchurch10	2,2,gheim_in08.gat,112,122 
+
+// Houses
+
+glastheim.gat,328,77,0	warp	glastout9	2,2,gheim_in07.gat,375,250
+gheim_in07.gat,375,255,0	warp	glastout10	2,2,glastheim.gat,331,77
+glastheim.gat,271,92,0	warp	glastout11	2,2,gheim_in07.gat,24,363
+gheim_in07.gat,24,360,0	warp	glastout12	2,2,glastheim.gat,271,96
+glastheim.gat,156,53,0	warp	glastout13	2,2,gheim_in07.gat,288,229
+gheim_in07.gat,288,226,0	warp	glastout14	2,2,glastheim.gat,156,50
+gheim_in07.gat,263,253,0	warp	glastout15	2,2,gheim_in07.gat,313,322
+gheim_in07.gat,307,321,0	warp	glastout16	2,2,gheim_in07.gat,267,253
+glastheim.gat,346,302,0	warp	glastout17	2,2,gheim_in07.gat,246,362
+gheim_in07.gat,246,358,0	warp	glastout18	2,2,glastheim.gat,349,302
+glastheim.gat,248,367,0	warp	glastout19	2,2,gheim_in07.gat,111,372
+gheim_in07.gat,111,368,0	warp	glastout20	2,2,glastheim.gat,248,363
+gheim_in07.gat,106,389,0	warp	glastout21	2,2,gheim_in07.gat,109,322
+gheim_in07.gat,114,322,0	warp	glastout22	2,2,gheim_in07.gat,110,389
+gheim_in07.gat,248,389,0	warp	glastout23	2,2,gheim_in07.gat,248,314
+gheim_in07.gat,243,315,0	warp	glastout24	2,2,gheim_in07.gat,245,389 
+
+// Inn
+
+glastheim.gat,350,186,0	warp	glastinn01	2,2,gheim_in07.gat,234,108
+gheim_in07.gat,230,108,0	warp	glastinn2	2,2,glastheim.gat,354,186
+gheim_in07.gat,268,123,0	warp	glastinn1	2,2,gheim_in07.gat,266,40
+gheim_in07.gat,260,40,0	warp	glastinn02	2,2,gheim_in07.gat,263,123

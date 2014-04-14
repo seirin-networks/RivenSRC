@@ -1,0 +1,28 @@
+
+//GEFFENIA INDOORS
+//-Inn
+geffenia_in.gat,183,203,0	warp	gefinn1-2	2,2,geffenia.gat,155,133
+geffenia_in.gat,207,211,0	warp	gefinn2-1	2,2,geffenia_in.gat,74,160
+geffenia_in.gat,71,160,0	warp	gefinn2-2	2,2,geffenia_in.gat,203,211
+//-Tavern
+geffenia_in.gat,256,126,0	warp	geftav1-2	2,3,geffenia.gat,202,75
+geffenia_in.gat,223,115,0	warp	geftav2-1	2,3,geffenia_in.gat,312,115
+geffenia_in.gat,308,115,0	warp	geftav2-2	2,3,geffenia_in.gat,219,115
+//-Small House
+geffenia_in.gat,177,293,0	warp	gefhouse1-2	2,2,geffenia.gat,248,64
+//-Long House Thinger
+geffenia_in.gat,286,222,0	warp	gefhouse2-2	2,2,geffenia.gat,153,45
+//-Alberta like House near Mines
+geffenia_in.gat,99,214,0	warp	gefhouse3-2	2,2,geffenia.gat,234,284
+geffenia_in.gat,76,229,0	warp	gefhouse3-3	2,2,geffenia_in.gat,125,372
+geffenia_in.gat,128,372,0	warp	gefhouse3-4	2,2,geffenia_in.gat,73,229
+//Luxurious and Long House
+geffenia_in.gat,195,368,0	warp	gefhouse4-2	2,2,geffenia.gat,97,182
+//-Armory + Commons Shop Complex
+geffenia_in.gat,252,283,0	warp	gefcom1-2	2,2,geffenia.gat,229,149
+geffenia_in.gat,262,315,0	warp	gefcom2-1	2,2,geffenia_in.gat,350,250
+geffenia_in.gat,352,221,0	warp	gefarm1-2	2,2,geffenia.gat,250,139
+geffenia_in.gat,381,232,0	warp	gefarm2-2	2,2,geffenia.gat,253,117
+geffenia_in.gat,346,250,0	warp	gefarm3-1	2,2,geffenia_in.gat,263,312
+//Office thinger
+geffenia_in.gat,78,290,0	warp	gefoff1-2	2,2,geffenia.gat,57,90

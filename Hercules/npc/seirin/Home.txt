@@ -1,0 +1,338 @@
+//========== Home town scripts =======================================
+//========== Seirin End Game item NPCs ===============================
+//========== Lunis ===================================================
+aev_fild01,94,64,6	script	Lunis::lun02	624,{
+	mes "[Lunis]";
+	mes "Welcome, to the forest where gods sleep~";
+	next;
+	mes "[Lunis]";
+	mes "I applaud you for finding your way here...";
+	next;
+	mes "[Lunis]";
+	mes "Now child, what is it that you want?";
+	close;
+}
+//========== Sylph ===================================================
+aev_fild01,183,114,4	script	Sylph::syl01	446,{
+	
+}
+//========== Mysterious Forest =======================================
+aev_fild,128,243,0	script	""::war01	139,1,1,{
+OnTouch: 
+	if(lostinforest==2) warp "aev_fild01",128,243;
+	end;
+}
+aev_fild,151,107,0	script	""::war02	139,1,1,{
+OnTouch:
+	if(lostinforest<1) set lostinforest,1;
+	end;
+}
+aev_fild,78,44,0	script	""::war03	139,3,3,{
+OnTouch:
+	if(lostinforest==1) set lostinforest,2;
+	end;
+}
+-	script	MapManager	-1,{
+OnPCLoadMapEvent:
+	if(strcharinfo(3)=="aev_fild01")goto L_eject;
+	if(strcharinfo(3)=="aev_fild")goto L_greet;
+	if(strcharinfo(3)=="sl_mall01")goto L_viproom;
+//	if(strcharinfo(3)=="arena")goto L_pvp;
+	end;
+L_viproom:
+	if(getgroupid()>0)end;
+	dispbottom "Sorry, invitation only.";
+	warp "mellina",143,108;
+	end;
+//L_pvp:
+//	set $@user,getmapusers(arena);
+//	end;
+L_greet:
+		if(forestfallen==1)end;
+		dispbottom "You wake up in a mysterious forest, danger looms, run up north!";
+		set forestfallen,1;
+		end;
+L_eject:
+		if(lostinforest!=2) warp "aev_fild",141,229;
+		end;
+}
+//========== Noobzone NPCs ===========================================
+nov_01,30,17,4	script	Lunis::lun01	624,{
+//if(getgroupid()==99)set ##lunismeet,2;
+if(##lunismeet==1){
+	mes "[Lunis]";
+	mes "Hello, the exit is in the path";
+	mes "behind me";
+	close2;
+	specialeffect2 313; percentheal 100,100;
+	specialeffect2 37; sc_start SC_INCREASEAGI,240000,50;
+	specialeffect2 42; sc_start SC_BLESSING,240000,50;
+	sc_start SC_KYRIE,240000,100;
+	save "mellina",86,82;
+	end;
+	}
+	mes "[Lunis]";
+	mes "Hello young one, I am Lunis!";
+	mes "King of Elves, and one who";
+	mes "Governs Seirin!";
+	next;
+	mes "[Lunis]";
+	mes "Let me give you something";
+	mes "to aid your journey.";
+	next;
+	mes "[Lunis]";
+	mes "You must know";
+	mes "that I will only give this";
+	mes "to you once! So do not waste";
+	mes "them.";
+	next;
+	mes "Lunis gives you some items";
+	getitem 1238,1;
+	getitem 14533,5;
+	getitem 14545,1;
+	rentitem 30003,604800;
+	rentitem 30005,604800;
+	rentitem 30006,604800;
+	set ##lunismeet,1;
+	next;
+	mes "[Lunis]";
+	mes "Now on you go!";
+	close;
+	end;
+}
+//========== Town NPCs ===============================================
+mellina,84,88,4	script	Fio::fio1	446,{
+	mes "[Fio]";
+	mes "Hi! I can save you here or heal and buff you, what would you like to do?";
+	switch(select("Heal and buffs please:Save:Nothing")){
+		case 1:
+				next;
+				mes "[Fio]";
+				mes "Okay!";
+				close2;
+				specialeffect2 313; percentheal 100,100;
+				specialeffect2 37; sc_start SC_INCREASEAGI,240000,10;
+				specialeffect2 42; sc_start SC_BLESSING,240000,10;
+				end;
+		case 2:
+				next;
+				mes "[Fio]";
+				mes "Done!";
+				close2;
+				save "mellina",86,82;
+				end;
+		case 3:
+				next;
+				mes "[Fio]";
+				mes "Bye then.";
+				close;
+				end;
+			}
+}
+mellina,61,91,0	script	::sgn1	111,{
+	end;
+OnInit:
+	waitingroom "PVP Room [ "+.user1+" ]",1;
+	initnpctimer;
+	end;
+OnTimer1000:
+	set .user1,getmapusers("arena");
+	end;
+OnTimer2000:
+	set .user1,getmapusers("arena");
+    stopnpctimer;
+    initnpctimer;
+	end;
+}
+mellina,122,91,0	script	::sgn2	111,{
+	end;
+OnInit:
+	set .user1,0;
+	waitingroom "Vend Room [ "+.user2+" ]",1;
+	initnpctimer;
+	end;
+OnTimer1000:
+	set .user2,getmapusers("market");
+	end;
+OnTimer2000:
+	set .user2,getmapusers("market");
+    stopnpctimer;
+    initnpctimer;
+	end;
+}
+mellina,41,62,0	script	::sgn3	111,{
+	end;
+OnInit:
+	waitingroom "Town Hall",1;
+	end;
+}
+mellina,136,113,0	script	::sgn4	111,{
+	end;
+OnInit:
+	waitingroom "VIP Mall [ "+.user3+" ]",1;
+	initnpctimer;
+	end;
+OnTimer1000:
+	set .user3,getmapusers("sl_mall01");
+	end;
+OnTimer2000:
+	set .user3,getmapusers("sl_mall01");
+    stopnpctimer;
+    initnpctimer;
+	end;
+}
+new_zone02,121,110,0	script	::sgn5	111,{
+	end;
+OnInit:
+	waitingroom "Armory --->",1;
+	end;
+}
+new_zone02,78,110,0	script	::sgn6	111,{
+	end;
+OnInit:
+	waitingroom "<--- Weaponry",1;
+	end;
+}
+new_zone02,23,191,0	script	::sgn7	111,{
+	end;
+OnInit:
+	waitingroom "VIP Mall shortcut",1;
+	end;
+}
+//========== Market NPCs =============================================
+market,92,119,5	script	Lin::lin1	437,{
+	warp "mellina",85,83;
+	end;
+OnInit:
+	waitingroom "Exit",1;
+	end;
+}
+//========== Duplicate NPCs ==========================================
+mellina,87,88,4	duplicate(Warper)	Terra	436
+mellina,66,75,5	duplicate(InsideFlagsPR1)	Kriemhild#16::mkr1	722
+mellina,70,79,5	duplicate(InsideFlagsPA4)	Scarlet Palace#12::msp1	722
+mellina,103,79,3	duplicate(InsideFlagsG3)	Yesnelph#16::mys1	722
+mellina,107,75,3	duplicate(InsideFlagsA1)	Neuschwanstein#24::mns1	722
+mellina,65,71,5	duplicate(jm01)	Job Master	447
+mellina,65,68,5	duplicate(rsg1)	Reset Girl	439
+mellina,65,65,5	duplicate(urn1)	Renter	441
+//========== Mob Spawns ==============================================
+nov_02,0,0,0,0	monster	Poring	1002,30,0,0,0
+nov_02,0,0,0,0	monster	Fabre	1007,10,0,0,0
+nov_02,0,0,0,0	monster	Lunatic	1063,10,0,0,0
+aev_fild,0,0,0,0	monster	Crum	1520,20,0,0,0
+aev_fild,0,0,0,0	monster	Sten	2187,20,0,0,0
+aev_fild,0,0,0,0	monster	Dink	1162,5,0,0,0
+aev_fild,0,0,0,0	monster	Linf	1010,20
+aev_fild01,0,0,0,0	monster	Crum	1520,20,0,0,0
+aev_fild01,0,0,0,0	monster	Sten	2187,20,0,0,0
+aev_fild01,0,0,0,0	monster	Dink	1162,20,0,0,0
+aev_fild01,0,0,0,0	monster	Linf	1010,20
+//========== General warps ===========================================
+aev_fild,141,239,0	warp	mel001	2,2,mellina,86,24,0 // [To mellina]
+aev_fild01,141,239,0	warp	mel002	2,2,mellina,86,24,0 // [To mellina]
+mellina,85,13,0	warp	mel003	2,2,aev_fild,141,229,0 // [To aev]
+mellina,55,92,0	warp	mel004	1,1,arena,49,50,0 // [To PVP]
+mellina,117,92,0	warp	mel005	1,1,market,99,112,0 // [To Market]
+mellina,143,113,0	warp	mel006	1,1,sl_mall01,101,147,0 // [To VIP Market]
+sl_mall01,101,142,0	warp	smal01	1,1,mellina,143,108,0 // [To Mellina]
+nov_02,155,183,0	warp	noob01	2,2,nov_01,30,11,0 // [To Noobzone exit]
+nov_01,30,3,0	warp	noob02	1,1,nov_02,155,173,0 // [To Noobzone field]
+nov_01,31,51,0	warp	noob03	2,2,aev_fild,203,101,0 // [To aev]
+mellina,40,57,0	warp	commal0	2,2,new_zone02,99,82,0 // [To Community Mall]
+new_zone02,74,106,0	warp	commal1	1,1,new_zone02,39,173,0 // [To Weaponry]
+new_zone02,126,106,0	warp	commal2	1,1,new_zone02,162,172,0 // [To Armory]
+new_zone02,155,172,0	warp	commal3	1,1,new_zone02,116,106,0 // [To Entry From Armory]
+new_zone02,46,173,0	warp	commal4	1,1,new_zone02,82,106,0 // [To Entry From Weaponry]
+new_zone02,99,69,0	warp	commal5	2,2,mellina,48,63,0 // [To mellina]
+new_zone02,23,188,0	warp	commal6	1,1,sl_mall01,101,147,0 // [VIP Mall shortcut]
+//========== Map Flags ===============================================
+aev_fild01	mapflag	nobranch
+aev_fild01	mapflag	nomemo
+aev_fild01	mapflag	noteleport
+aev_fild01	mapflag	noreturn
+aev_fild01	mapflag	nosave
+aev_fild01	mapflag	nowarp
+aev_fild01	mapflag	nowarpto
+aev_fild01	mapflag	notrade
+aev_fild01	mapflag	nogo
+aev_fild01	mapflag	nodrop
+aev_fild01	mapflag	novending
+aev_fild01	mapflag	leaves
+aev_fild01	mapflag	nochat
+aev_fild01	mapflag	loadevent
+
+aev_fild	mapflag	nobranch
+aev_fild	mapflag	nomemo
+aev_fild	mapflag	noteleport
+aev_fild	mapflag	noreturn
+aev_fild	mapflag	nosave
+aev_fild	mapflag	nowarp
+aev_fild	mapflag	nowarpto
+aev_fild	mapflag	notrade
+aev_fild	mapflag	nogo
+aev_fild	mapflag	nodrop
+aev_fild	mapflag	novending
+aev_fild	mapflag	leaves
+aev_fild	mapflag	nochat
+aev_fild	mapflag	loadevent
+
+nov_01	mapflag	nobranch
+nov_01	mapflag	nomemo
+nov_01	mapflag	noteleport
+nov_01	mapflag	noreturn
+nov_01	mapflag	nosave
+nov_01	mapflag	nowarp
+nov_01	mapflag	nowarpto
+nov_01	mapflag	nogo
+
+nov_02	mapflag	nobranch
+nov_02	mapflag	nomemo
+nov_02	mapflag	noteleport
+nov_02	mapflag	noreturn
+nov_02	mapflag	nosave
+nov_02	mapflag	nowarp
+nov_02	mapflag	nowarpto
+nov_02	mapflag	nogo
+
+arena	mapflag	pvp
+arena	mapflag	pvp_noparty
+arena	mapflag	pvp_noguild
+arena	mapflag	nowarp
+arena	mapflag	nogo
+arena	mapflag	noreturn
+arena	mapflag	nosave
+arena	mapflag	noteleport
+arena	mapflag	nobranch
+arena	mapflag	nowarpto
+arena	mapflag	nocommand
+arena	mapflag	restricted	2
+arena	mapflag	loadevent
+
+market	mapflag	autotrade
+market	mapflag	noteleport
+market	mapflag	noreturn
+market	mapflag	nowarp
+market	mapflag	nowarpto
+market	mapflag	nodrop
+market	mapflag	nobranch
+market	mapflag	nogo
+market	mapflag	loadevent
+
+sl_mall01	mapflag	loadevent
+sl_mall01	mapflag	nobranch
+sl_mall01	mapflag	nocommand
+sl_mall01	mapflag	noteleport
+sl_mall01	mapflag	noreturn
+sl_mall01	mapflag	nowarpto
+sl_mall01	mapflag	nowarp
+sl_mall01	mapflag	nosave
+sl_mall01	mapflag	nomemo
+sl_mall01	mapflag	nodrop
+sl_mall01	mapflag	nogo
+//========== Coordinate and other logs ===============================
+// 459 guardsman [house]
+// 465 very nice fairy npc
+// 624 fairy king
+// 856 girl in chair
+// 447 fairy guard

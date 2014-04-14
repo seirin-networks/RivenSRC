@@ -1,0 +1,107 @@
+//===== eAthena Script ============================================
+//= Scuffle Event
+//===== By: =======================================================
+//= AnnieRuru
+//===== Current Version: ==========================================
+//= 1.0
+//===== Compatible With: ==========================================
+//= hercules 2014-03-06
+//===== Description: ==============================================
+//= randomly pick 2 active players and put them to fight .. for reward
+//===== Topic =====================================================
+//= http://hercules.ws/board/topic/4746-
+//===== Additional Comments: ======================================
+//= can actually pick more than 2 player to put them to fight ..
+//= well for some reason Paskie couldn't finish the script, so I release it
+//=================================================================
+
+-	script	scuffle	-1,{
+OnInit:
+	.players = 2; // how many players are select for the scuffle
+	.idle = 30; // only pick those who were active in last 30 seconds for this scuffle
+	.level = 55; // only pick those who are higher than this level for this scuffle
+	.map$ = "guild_vs2"; // use an empty map and small enough for this scuffle
+	.lasting = 10 *60; // how long will the duel last ... in seconds ...
+	setarray .reward, 502,3, 501,1; // reward to the winner
+
+	setarray .@mapflag,
+		mf_pvp,
+		mf_pvp_noparty,
+		mf_pvp_noguild,
+		mf_nowarp,
+		mf_nowarpto,
+		mf_nomemo,
+		mf_nosave,
+		mf_noreturn,
+		mf_noteleport,
+		mf_noicewall,
+		mf_nopenalty;
+	.@mf_size = getarraysize( .@mapflag );
+	for ( .@i = 0; .@i < .@mf_size; .@i++ )
+		setmapflag .map$, .@mapflag[.@i];
+	mapwarp .map$, "prontera", 150,150;
+	.rewardsize = getarraysize(.reward);
+	end;
+OnClock0000: // time to start ...
+OnClock0315:
+OnClock0600:
+OnClock0900:
+	.@nb = query_sql( "select account_id, name from `char` where online = 1 order by rand() limit 100", .@aid, .@name$ );
+	for ( .@i = 0; .@i < .@nb; .@i++ ) {
+		attachrid .@aid[.@i];
+		if ( !checkvending() && !checkchatting() && !getmapflag( strcharinfo(3), mf_nowarp ) && !getmapflag( strcharinfo(3), mf_nowarpto ) && !getgmlevel() && checkidle() < .idle && BaseLevel >= .level ) { // not vendor, not inside an event map and excluding GMs
+			.@duelid[.@c] = .@aid[.@i];
+			.@duelname$[.@c] = .@name$[.@i];
+			.@c++;
+			if ( .@c == .players ) {
+				break;
+			}
+		}
+	}
+	if ( .@c < .players ) end; // can't even find enough players
+	announce "["+ implode( .@duelname$, "] and [" )+"] has started a scuffle", bc_all;
+	for ( .@i = 0; .@i < .players; .@i++ ) {
+		.duel[.@i] = .@duelid[.@i];
+		getmapxy .@map$, .@x, .@y, 0, .@duelname$[.@i];
+		.duelmap$[.@i] = .@map$;
+		.duelx[.@i] = .@x;
+		.duely[.@i] = .@y;
+		attachrid .@duelid[.@i];
+		warp .map$, 0,0;
+	}
+	sleep .lasting * 1000;
+	.@size = getarraysize( .duel );
+	if ( .@size > 1 ) {
+		announce "The scuffle drag on for too long, nobody wins", bc_all;
+		for ( .@i = 0; .@i < .@size; .@i++ ) {
+			attachrid .duel[.@i];
+			warp .duelmap$[.@i], .duelx[.@i], .duely[.@i];
+		}
+	}
+	else {
+		attachrid .duel;
+		announce strcharinfo(0) +" won the scuffle !", bc_all;
+		for ( .@i = 0; .@i < .rewardsize; .@i += 2 )
+			getitem .reward[.@i], .reward[.@i +1];
+		warp .duelmap$, .duelx, .duely;
+	}
+	deletearray .duel;
+	deletearray .duelmap$;
+	deletearray .duelx;
+	deletearray .duely;
+	end;
+OnPCLogoutEvent:
+OnPCDieEvent:
+	if ( strcharinfo(3) != .map$ ) end;
+	while ( getcharid(3) != .duel[.@i] && .@i < .players ) .@i++;
+	if ( .@i == .players ) end;
+	attachrid .duel[.@i];
+	warp .duelmap$[.@i], .duelx[.@i], .duely[.@i];
+	deletearray .duel[.@i], 1;
+	deletearray .duelmap$[.@i], 1;
+	deletearray .duelx[.@i], 1;
+	deletearray .duely[.@i], 1;
+	if ( getarraysize( .duel ) > 1 ) end;
+	awake strnpcinfo(0);
+	end;
+}

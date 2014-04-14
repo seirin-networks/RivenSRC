@@ -1,0 +1,145 @@
+//===== Athena Script =====================================
+//= Stop the Clock
+//===== By ================================================
+//= Tom94
+//===== Version ===========================================
+//= 1.0
+//=========================================================
+//= 1.0 - First release
+//===== Compatible With ===================================
+//= TXT and SQL. No idea which revisions xP
+//===== Description =======================================
+//= A minigame
+//=========================================================
+
+mellina,139,62,3	script	Stop the Clock	763,{
+
+if(.game == 1 && stopped != 1)	{
+	set stopped, 1;
+	set @stopped, .i;
+	message strcharinfo(0), "You stopped the clock at "+@stopped+".";
+	if(.lowest > @stopped)	{
+		set .lowest, @stopped;
+		set .winner$, strcharinfo(0);
+		}
+	end;
+}
+else if(.game == 1)	{
+	message strcharinfo(0), "You already stopped the clock.";
+	end;
+	}
+
+set .name$, "[^ff0000Aline^000000]";
+set .menu$, "Times:Information:Price:Leave";
+
+
+if(strcharinfo(0) == .winner$)	{
+	set stopped, 0;
+	mes .name$;
+	mes "Here you get your price.";
+	mes "The price id is: ^ff0000"+$prize_id+"^000000.";
+	mes "The amount is: ^ff0000"+$prize_amount+"^000000.";
+	getitem $prize_id, $prize_amount;
+	set .winner$, "";
+	close;
+	}
+
+if(stopped == 1)	{
+	set stopped, 0;
+	mes .name$;
+	mes "You activated your char for the next round.";
+	close;
+	}
+
+if(getgroupid() > 60) set .menu$, .menu$ + ":StartGame:SetPrice";
+
+mes .name$;
+mes "Welcome to the ^ff0000Stop the Clock^000000 minigame.";
+switch(select(.menu$))	{
+	case 1:
+	mes "^ff0000Stop the Clock^000000 is each day at 6:00 pm.";
+	close;
+
+	case 2:
+	mes "^ff0000Stop the Clock^000000 is a game where you need to click me";
+	mes "exactly when the counter reached 0.";
+	next;
+	mes .name$;
+	mes "The counter will start at 5:59 10 seconds before it gets to 6:00.";
+	mes "It counts down from 1000 to 0.";
+	next;
+	mes .name$;
+	mes "To win, you need to have the closest value to 0 but at least below 50.";
+	next;
+	mes .name$;
+	mes "The winners will recieve a prize.";
+	close;
+
+	case 3:
+	mes "The price id is: ^ff0000"+$prize_id+"^000000.";
+	mes "The amount is: ^ff0000"+$prize_amount+"^000000.";
+	close;
+
+	case 4:
+	close;
+
+	case 5:
+	sleep2 100;
+	close2;
+	goto l_start;
+	end;
+
+	case 6:
+	mes "Enter the item id of the prize:";
+	input $prize_id;
+	next;
+	mes .name$;
+	mes "Enter the amount of items the winner will recieve:";
+	input $prize_amount;
+	next;
+	mes .name$;
+	mes "The price id is: ^ff0000"+$prize_id+"^000000.";
+	mes "The amount is: ^ff0000"+$prize_amount+"^000000.";
+	close;
+	}
+
+OnClock1759:
+
+l_start:
+
+set .winner$, "";
+set .game, 1;
+set .lowest, 1000;
+
+for(set .i, 1000; .i > 300;set .i, .i - 100)	{
+		announce ":: "+.i+" ::",bc_blue|bc_area;
+		misceffect 377;
+		sleep2 1000;
+		}
+
+for(set .i, 300; .i > 50;set .i, .i - 10)	{
+		announce ":: "+.i+" ::",bc_blue|bc_area;
+		misceffect 377;
+		sleep2 100;
+		}
+
+for(set .i, 50; .i > 0;set .i, .i - 1)	{
+		announce ":: "+.i+" ::",bc_blue|bc_area;
+		misceffect 377;
+		sleep2 10;
+		}
+
+set .game, 0;
+
+if(.winner$ == "")	{
+	announce "Nobody hit the clock at the right moment. There is no winner.",bc_blue;
+	end;
+	}
+announce .winner$+" won Stop the Clock. He stopped it at "+.lowest+".",bc_blue;
+sleep2 2500;
+announce .winner$+", please talk to me to get your price.",bc_blue;
+sleep2 2500;
+announce "To activate your char for the next round, please talk to me, too.",bc_blue;
+
+end;
+}

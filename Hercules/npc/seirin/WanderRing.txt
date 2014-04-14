@@ -1,0 +1,49 @@
+-	script	poringbind	-1,{
+OnInit:
+    unbindatcmd "poring";
+    bindatcmd("poring","poringbind::OnAtcommand",20,90);
+    end;
+    
+OnAtcommand:
+if(getgroupid() < 20) { end; }
+set .map$,.@atcmd_parameters$[0];
+ 
+ 
+if(@map$ == "") {
+dispbottom "Syntax: @poring <mapname>";
+dispbottom "Five Porings will spawn on the map you choose. Recommended usage for this event is 3-5 times per day.";
+dispbottom "NOTE: Do NOT use capitals in the map name otherwise no Poring will spawn!";
+end;
+}
+
+donpcevent strnpcinfo(3)+"::OnEvent";
+end;
+ 
+
+OnMinute01: // Put your custom triggers here
+set .map$, "yourmapname";
+donpcevent strnpcinfo(3)+"::OnEvent";
+end;
+
+
+OnEvent:
+
+monster .map$,0,0,"Wandering Poring",1002,5,"poringbind::OnKill";
+announce "[Wandering Poring] : 5x Wandering Porings have been sighted on the map: "+.map$+". The first person to find and kill each will receive an award!",0;
+end;
+ 
+OnKill:
+// Update Here!
+set .@prize,rand(1,5);
+announce "[Wandering Poring] : "+strcharinfo(0)+" has captured a Wandering Poring on the map "+strcharinfo(3)+"!",0;
+// Syntax: Item ID / Quantity
+if(.@prize == 1) { getitem 501,1; }
+if(.@prize == 2) { getitem 502,1; }
+if(.@prize == 3) { getitem 503,1; }
+if(.@prize == 4) { getitem 504,1; }
+if(.@prize == 5) { getitem 505,1; }
+// 25 Poring Coins Base Prize
+getitem 7539,25;
+end;
+ 
+}

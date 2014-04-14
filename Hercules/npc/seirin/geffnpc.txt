@@ -1,0 +1,162 @@
+
+//-----------------------------------
+// Geffenia!
+//-----------------------------------
+
+//Dwarves
+geffenia.gat,239,261,6	script	Degan	704,{
+mes "[Degan]";
+mes "Just cause I'm little doesn't mean I ain't tough!";
+close;
+}
+
+geffenia.gat,240,273,6	script	Bolgan	826,{
+mes "[Bolgan]";
+mes "Ho ho, I have the strength of 1000 hammers!";
+close;
+}
+
+geffenia.gat,228,218,6	script	Bibette	62,{
+mes "[Bibette]";
+mes "I'm no child! I'm a dwarven lady! Hmph.";
+close;
+}
+
+geffenia.gat,253,229,6	script	Margette	62,{
+mes "[Margette]";
+mes "Dwarven men are so stubborn! Must be their hard heads!";
+close;
+}
+
+geffenia.gat,228,273,6	script	Bog	704,{
+mes "[Bog]";
+mes "You like to dig? Bog like to dig! Digging is fun for Bog!";
+close;
+}
+
+geffenia.gat,270,238,6	script	Tel	766,{
+mes "[Tel]";
+mes "There's no place like home. Especially a dwarf's home!";
+close;
+}
+
+
+//Succubi and Incubi
+geffenia.gat,78,96,6	script	Alanis	1370,{
+mes "[Alanis]";
+mes "Ah Geffenia, how I missed you for the hotties~";
+close;
+}
+
+geffenia.gat,167,175,6	script	Lillen	1370,{
+mes "[Lillen]";
+mes "Isn't Emperor Berzebub the best?";
+close;
+}
+
+geffenia.gat,200,226,6	script	Jade	1370,{
+mes "[Jade]";
+mes "Aren't these pumps just darling? I made a man get them for me... *winks*";
+close;
+}
+
+geffenia.gat,127,128,6	script	Marrix	1374,{
+mes "[Marrix]";
+mes "Hey . . . watch the horns!";
+close;
+}
+
+geffenia.gat,45,89,6	script	Claus	1374,{
+mes "[Claus]";
+mes "... Why do I feel hungry for a Mastela Fruit?";
+close;
+}
+
+geffenia.gat,177,184,6	script	Erene	879,{
+mes "[Erene]";
+mes "What lurks beneath this hood? Well that's for you to find out dear~";
+close;
+}
+
+geffenia.gat,94,124,6	script	Kalvin	64,{
+mes "[Kalvin]";
+mes "I'm not ashamed of my horns... I just like hats.";
+close;
+}
+
+//Fairies
+geffenia.gat,153,274,6	script	Beatrice	891,{
+mes "Hello! Do you need a hug? *giggle*";
+close;
+}
+
+geffenia.gat,156,245,6	script	Bianca	890,{
+mes "[Bianca]";
+mes "Do you want to play hide and seek?~*";
+close;
+}
+
+geffenia.gat,155,235,6	script	Nane	703,{
+mes "[Nane]";
+mes "I'm not a kid~ Just a fairy~ *giggle*";
+close;
+}
+
+//Elves
+geffenia.gat,237,166,6	script	Aldo	51,{
+mes "[Aldo]";
+mes "Isn't it so peaceful here?";
+close;
+}
+
+geffenia.gat,182,80,6	script	Crestell	70,{
+mes "[Crestell]";
+mes "I just love gazing at the crystals... I can do it for hours!";
+close;
+}
+
+geffenia.gat,200,79,6	script	Darrgen	930,{
+mes "[Darrgen]";
+mes "There's no where else in the world so full of life other than the Yggdrasil. I praise Emperor Berzebub for this!";
+close;
+}
+
+geffenia.gat,122,35,6	script	Iris	729,{
+mes "[Iris]";
+mes "The flowers are so beautiful.";
+close;
+}
+
+geffenia.gat,60,47,6	script	Ineme	931,{
+mes "[Ineme]";
+mes "Geffenia is back! Hoorah for the Emperor!";
+close;
+}
+
+//flower to warp in palace
+geffenia.gat,118,225,6	script	Meme	703,{
+mes "[Meme]";
+mes "Hello! Would you like to see the beautiful palace?~";
+next;
+menu "Yes please",L_yes,"No thanks",L_no;
+
+L_yes:
+warp "geffenia_in.gat",	351,	321;	end;
+
+L_no:
+close;
+}
+
+//palace in throne to warp out 
+geffenia_in.gat,355,342,6	script	Bibidi	125,{
+mes "[Bibidi]";
+mes "Would you like to go back outside?";
+next;
+menu "Yes please",L_yes2,"No thanks",L_no2;
+
+L_yes2:
+warp "geffenia.gat",	113,	229;	end;
+
+L_no2:
+close;
+}
