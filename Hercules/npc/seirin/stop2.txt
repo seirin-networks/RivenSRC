@@ -86,7 +86,7 @@ switch(select(.menu$))	{
 	case 5:
 	sleep2 100;
 	close2;
-	goto l_start;
+	goto L_Start;
 	end;
 
 	case 6:
@@ -105,7 +105,7 @@ switch(select(.menu$))	{
 
 OnClock1759:
 
-l_start:
+L_Start:
 
 set .winner$, "";
 set .game, 1;

@@ -255,7 +255,7 @@ aev_fild01	mapflag	nosave
 aev_fild01	mapflag	nowarp
 aev_fild01	mapflag	nowarpto
 aev_fild01	mapflag	notrade
-aev_fild01	mapflag	nogo
+//aev_fild01	mapflag	nogo
 aev_fild01	mapflag	nodrop
 aev_fild01	mapflag	novending
 aev_fild01	mapflag	leaves
@@ -270,7 +270,7 @@ aev_fild	mapflag	nosave
 aev_fild	mapflag	nowarp
 aev_fild	mapflag	nowarpto
 aev_fild	mapflag	notrade
-aev_fild	mapflag	nogo
+//aev_fild	mapflag	nogo
 aev_fild	mapflag	nodrop
 aev_fild	mapflag	novending
 aev_fild	mapflag	leaves
@@ -284,7 +284,7 @@ nov_01	mapflag	noreturn
 nov_01	mapflag	nosave
 nov_01	mapflag	nowarp
 nov_01	mapflag	nowarpto
-nov_01	mapflag	nogo
+//nov_01	mapflag	nogo
 
 nov_02	mapflag	nobranch
 nov_02	mapflag	nomemo
@@ -293,20 +293,20 @@ nov_02	mapflag	noreturn
 nov_02	mapflag	nosave
 nov_02	mapflag	nowarp
 nov_02	mapflag	nowarpto
-nov_02	mapflag	nogo
+//nov_02	mapflag	nogo
 
 arena	mapflag	pvp
 arena	mapflag	pvp_noparty
 arena	mapflag	pvp_noguild
 arena	mapflag	nowarp
-arena	mapflag	nogo
+//arena	mapflag	nogo
 arena	mapflag	noreturn
 arena	mapflag	nosave
 arena	mapflag	noteleport
 arena	mapflag	nobranch
 arena	mapflag	nowarpto
 arena	mapflag	nocommand
-arena	mapflag	restricted	2
+//arena	mapflag	restricted	2
 arena	mapflag	loadevent
 
 market	mapflag	autotrade
@@ -316,7 +316,7 @@ market	mapflag	nowarp
 market	mapflag	nowarpto
 market	mapflag	nodrop
 market	mapflag	nobranch
-market	mapflag	nogo
+//market	mapflag	nogo
 market	mapflag	loadevent
 
 sl_mall01	mapflag	loadevent
@@ -329,7 +329,7 @@ sl_mall01	mapflag	nowarp
 sl_mall01	mapflag	nosave
 sl_mall01	mapflag	nomemo
 sl_mall01	mapflag	nodrop
-sl_mall01	mapflag	nogo
+//sl_mall01	mapflag	nogo
 //========== Coordinate and other logs ===============================
 // 459 guardsman [house]
 // 465 very nice fairy npc
